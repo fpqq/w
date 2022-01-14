@@ -1,0 +1,69 @@
+gi,teaching_level,time,time_wk_whn,time_wk_btw,items_whn,items_btw,training_hr_whn,training_hr_btw
+-0.351212406,elementary,Baseline,-18,18,0.5,12.5,-8,8
+0.12224308,elementary,Baseline,-18,18,-0.5,12.5,-8,8
+-0.265265977,elementary,Post-test 1,18,18,0.5,12.5,8,8
+0.036139251,elementary,Post-test 1,18,18,-0.5,12.5,8,8
+0.284973729,secondary,Baseline,-36,36,0,21,-5,5
+0.439956224,secondary,Post-test 1,0,36,0,21,10,5
+0.647372226,secondary,Post-test 2,36,36,0,21,-5,5
+0.407857819,elementary,Post-test 1,0,72,0,69,0,42
+0,secondary,Post-test 1,0,15,0,24,0,45
+0.09257538,secondary,Baseline,-8,8,NA,NA,-12,12
+-0.258831638,secondary,Post-test 1,8,8,NA,NA,12,12
+0.194914867,mixed,Baseline,-5.5,5.5,0,8,-11,11
+-0.761658036,mixed,Baseline,-5.5,5.5,0,8,-11,11
+0.096952362,mixed,Baseline,-5.5,5.5,0,8,-11,11
+0.484518856,mixed,Post-test 1,5.5,5.5,0,8,11,11
+0.212574827,mixed,Post-test 1,5.5,5.5,0,8,11,11
+0.636690201,mixed,Post-test 1,5.5,5.5,0,8,11,11
+-0.22509015,secondary,Baseline,-6.333333333,6.333333333,0,12,-13.33333333,13.33333333
+0.146711944,secondary,Post-test 1,-5.333333333,6.333333333,0,12,26.66666667,13.33333333
+0.183403698,secondary,Post-test 2,11.66666667,6.333333333,0,12,-13.33333333,13.33333333
+-0.477180686,mixed,Baseline,-18,18,0,7,-28,28
+0.130804454,mixed,Post-test 1,18,18,0,7,28,28
+-0.096377713,secondary,Baseline,-18,18,0,13,-44.5,44.5
+2.008874892,secondary,Post-test 1,18,18,0,13,44.5,44.5
+0.461296307,secondary,Post-test 1,0,36,0,9,0,88
+-0.192752798,mixed,Post-test 1,0,36,0,24,0,100
+0.18685608,elementary,Baseline,-18,18,0,24,-17,17
+0.211238286,elementary,Post-test 1,18,18,0,24,17,17
+-0.297757614,secondary,Baseline,-12.66666667,12.66666667,0,11,-23.33333333,23.33333333
+0.189565688,secondary,Post-test 1,-10.66666667,12.66666667,0,11,46.66666667,23.33333333
+0.311326947,secondary,Post-test 2,23.33333333,12.66666667,0,11,-23.33333333,23.33333333
+0.307892612,elementary,Post-test 1,0,3,0,12,0,80
+0.508503339,mixed,Post-test 1,0,8,7,33,0,24
+0.292448243,mixed,Post-test 1,0,8,-7,33,0,24
+-0.258125078,elementary,Baseline,-18,18,0,7,-18,18
+0.025285699,elementary,Post-test 1,18,18,0,7,18,18
+0.219491741,elementary,Baseline,-2,2,NA,NA,-4,4
+0.357650538,elementary,Post-test 1,2,2,NA,NA,4,4
+-0.661847238,elementary,Baseline,-54,54,0,69,-85,85
+0.599856423,elementary,Post-test 1,54,54,0,69,85,85
+1.020126311,elementary,Post-test 1,0,1,0,25,0,24
+-0.142460943,mixed,Baseline,-11.25,11.25,NA,NA,-17.5,17.5
+0.944830841,mixed,Post-test 1,-9.25,11.25,NA,NA,22.5,17.5
+1.394637464,mixed,Post-test 2,-4.25,11.25,NA,NA,12.5,17.5
+1.146786669,mixed,Post-test 3,24.75,11.25,NA,NA,-17.5,17.5
+1.000525751,elementary,Post-test 1,0,36,0.5,5.5,0,27
+1.607401898,elementary,Post-test 1,0,36,-0.5,5.5,0,27
+-0.183811438,mixed,Post-test 1,0,36,0,10,0,60
+0.342866522,secondary,Baseline,-1,1,0,4,-7,7
+0.208999711,secondary,Baseline,-1,1,0,4,-7,7
+-0.013105188,secondary,Baseline,-1,1,0,4,-7,7
+0.541472542,secondary,Post-test 1,1,1,0,4,7,7
+0.259635428,secondary,Post-test 1,1,1,0,4,7,7
+0.174679261,secondary,Post-test 1,1,1,0,4,7,7
+0.213610561,elementary,Baseline,-5,5,-0.5,12.5,-5,5
+-0.189690662,elementary,Baseline,-5,5,0.5,12.5,-5,5
+0.840664425,elementary,Post-test 1,5,5,-0.5,12.5,5,5
+0.803413296,elementary,Post-test 1,5,5,0.5,12.5,5,5
+0.17819297,secondary,Post-test 1,0,24,0,4,0,24
+0.217791408,secondary,Post-test 1,0,24,0,4,0,24
+2.691609966,elementary,Post-test 1,0,72,0.5,12.5,0,50
+2.315980798,elementary,Post-test 1,0,72,-0.5,12.5,0,50
+-0.417240202,elementary,Baseline,-12,12,0,7,-9,9
+0.39324224,elementary,Post-test 1,12,12,0,7,9,9
+0.062891241,elementary,Baseline,-18,18,0.5,7.5,-18,18
+0.346708125,elementary,Baseline,-18,18,-0.5,7.5,-18,18
+0.93478174,elementary,Post-test 1,18,18,0.5,7.5,18,18
+1.171741547,elementary,Post-test 1,18,18,-0.5,7.5,18,18
