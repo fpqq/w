@@ -1,0 +1,77 @@
+study,gi,v_gi,teaching_level,pd_format,pd_content,training_hr,time,outcome,area,time_wk_whn,time_wk_btw,study_type,obs
+1,0.130804454,0.038534657,mixed,tradition,Science,56,Post-test 1,Other,usa,18,18,control,1
+1,-0.477180686,0.039434621,mixed,tradition,Science,0,Baseline,Other,usa,-18,18,control,2
+2,2.008874892,0.437422306,secondary,tradition,Science,89,Post-test 1,TEBI,usa,18,18,control,3
+2,-0.096377713,0.364500578,secondary,tradition,Science,0,Baseline,TEBI,usa,-18,18,control,4
+3,0.036139251,0.330338108,elementary,tradition,Math,16,Post-test 1,TEBI,other,18,18,compare,5
+3,-0.265265977,0.330504443,elementary,tradition,Math,16,Post-test 1,TEBI,other,18,18,compare,6
+3,0.12224308,0.308065048,elementary,tradition,Math,0,Baseline,TEBI,other,-18,18,compare,7
+3,-0.351212406,0.308368255,elementary,tradition,Math,0,Baseline,TEBI,other,-18,18,compare,8
+4,0.439956224,0.095728976,secondary,tradition,Math,15,Post-test 1,Other,other,0,36,compare,9
+4,0.647372226,0.09835141,secondary,tradition,Math,0,Post-test 2,Other,other,36,36,compare,10
+4,0.284973729,0.094422563,secondary,tradition,Math,0,Baseline,Other,other,-36,36,compare,11
+5,0.461296307,0.363526837,secondary,tradition,Science,88,Post-test 1,Other,usa,0,36,control,12
+6,0.407857819,0.032774269,elementary,tradition,Science,42,Post-test 1,Other,usa,0,72,compare,13
+7,0,0.105263158,secondary,tradition,Science,45,Post-test 1,TEBI,usa,0,15,compare,14
+8,-0.258831638,0.025402923,secondary,mixed,Science,24,Post-test 1,Other,other,8,8,compare,15
+8,0.09257538,0.025237885,secondary,mixed,Science,0,Baseline,Other,other,-8,8,compare,16
+9,-0.037573116,0.040483111,mixed,tradition,Science,100,Post-test 1,TEBI,usa,0,36,control,17
+9,-0.20442488,0.040681041,mixed,tradition,Science,100,Post-test 1,TEBI,usa,0,36,control,18
+10,0.108031754,0.308848738,elementary,reform,Math,34,Post-test 1,TSES,other,18,18,control,19
+10,0.241314796,0.308918966,elementary,reform,Math,34,Post-test 1,TSES,other,18,18,control,20
+10,0.211238286,0.308898437,elementary,reform,Math,34,Post-test 1,TSES,other,18,18,control,21
+10,0.14906928,0.308864652,elementary,reform,Math,0,Baseline,TSES,other,-18,18,control,22
+10,0.140077978,0.30886073,elementary,reform,Math,0,Baseline,TSES,other,-18,18,control,23
+10,0.145719959,0.308863162,elementary,reform,Math,0,Baseline,TSES,other,-18,18,control,24
+11,0.189565688,0.089263213,secondary,tradition,Multidiscipline,70,Post-test 1,Other,usa,-10.66666667,12.66666667,control,25
+11,0.311326947,0.089898519,secondary,tradition,Multidiscipline,0,Post-test 2,Other,usa,23.33333333,12.66666667,control,26
+11,-0.297757614,0.089812426,secondary,tradition,Multidiscipline,0,Baseline,Other,usa,-12.66666667,12.66666667,control,27
+12,0.307892612,0.077007915,elementary,reform,Science,80,Post-test 1,TEBI,usa,0,3,control,28
+13,0.292448243,0.192945424,mixed,tradition,Multidiscipline,24,Post-test 1,Other,usa,0,8,control,29
+13,0.508503339,0.197065654,mixed,tradition,Multidiscipline,24,Post-test 1,Other,usa,0,8,control,30
+14,0.025285699,0.348927663,elementary,mixed,Multidiscipline,36,Post-test 1,Other,other,18,18,control,31
+14,-0.258125078,0.349228928,elementary,mixed,Multidiscipline,0,Baseline,Other,other,-18,18,control,32
+15,0.357650538,0.282041575,elementary,tradition,Math,8,Post-test 1,Other,usa,2,2,control,33
+15,0.219491741,0.279383665,elementary,tradition,Math,0,Baseline,Other,usa,-2,2,control,34
+16,0.599856423,0.047245081,elementary,mixed,Science,170,Post-test 1,Other,usa,54,54,control,35
+16,-0.661847238,0.047684486,elementary,mixed,Science,0,Baseline,Other,usa,-54,54,control,36
+17,1.020126311,0.066679673,elementary,tradition,Multidiscipline,24,Post-test 1,TEBI,usa,0,1,control,37
+18,0.944830841,0.294800096,mixed,tradition,Science,40,Post-test 1,Other,usa,-9.25,11.25,control,38
+18,1.394637464,0.420579448,mixed,mixed,Science,30,Post-test 1,Other,usa,-4.25,11.25,control,39
+18,1.146786669,0.349018279,mixed,mixed,Science,0,Post-test 2,Other,usa,24.75,11.25,control,40
+18,-0.142460943,0.288322757,mixed,tradition,Science,0,Baseline,Other,usa,-11.25,11.25,control,41
+19,0.636690201,0.183054911,mixed,tradition,Math,22,Post-test 1,TSES,other,5.5,5.5,compare,42
+19,0.212574827,0.175224773,mixed,tradition,Math,22,Post-test 1,TSES,other,5.5,5.5,compare,43
+19,0.484518856,0.17934587,mixed,tradition,Math,22,Post-test 1,TSES,other,5.5,5.5,compare,44
+19,0.096952362,0.174446767,mixed,tradition,Math,0,Baseline,TSES,other,-5.5,5.5,compare,45
+19,-0.761658036,0.186853793,mixed,tradition,Math,0,Baseline,TSES,other,-5.5,5.5,compare,46
+19,0.194914867,0.175068333,mixed,tradition,Math,0,Baseline,TSES,other,-5.5,5.5,compare,47
+20,1.000525751,0.0869597,elementary,tradition,Multidiscipline,27,Post-test 1,Other,usa,0,36,control,48
+20,1.607401898,0.1026477,elementary,tradition,Multidiscipline,27,Post-test 1,Other,usa,0,36,control,49
+21,-0.183811438,0.411466516,mixed,reform,Math,60,Post-test 1,Other,other,0,36,control,50
+22,0.353483557,0.197419459,secondary,tradition,Science,40,Post-test 1,TEBI,usa,-5.333333333,6.333333333,compare,51
+22,0.604841145,0.203154749,secondary,tradition,Science,40,Post-test 1,TEBI,usa,-5.333333333,6.333333333,compare,52
+22,-0.190922261,0.195312333,secondary,tradition,Science,0,Post-test 2,TEBI,usa,11.66666667,6.333333333,compare,53
+22,0.25942067,0.196046804,secondary,tradition,Science,0,Post-test 2,TEBI,usa,11.66666667,6.333333333,compare,54
+22,-0.341736572,0.197225013,secondary,tradition,Science,0,Baseline,TEBI,usa,-6.333333333,6.333333333,compare,55
+22,-0.014294793,0.19444931,secondary,tradition,Science,0,Baseline,TEBI,usa,-6.333333333,6.333333333,compare,56
+23,0.541472542,0.330553996,secondary,tradition,Math,14,Post-test 1,TSES,other,1,1,control,57
+23,0.259635428,0.329484149,secondary,tradition,Math,14,Post-test 1,TSES,other,1,1,control,58
+23,0.174679261,0.329309312,secondary,tradition,Math,14,Post-test 1,TSES,other,1,1,control,59
+23,0.342866522,0.329721765,secondary,tradition,Math,0,Baseline,TSES,other,-1,1,control,60
+23,0.208999711,0.329371708,secondary,tradition,Math,0,Baseline,TSES,other,-1,1,control,61
+23,-0.013105188,0.329165544,secondary,tradition,Math,0,Baseline,TSES,other,-1,1,control,62
+24,0.803413296,0.093972532,elementary,mixed,Multidiscipline,10,Post-test 1,TEBI,other,5,5,control,63
+24,0.840664425,0.094638225,elementary,mixed,Multidiscipline,10,Post-test 1,TEBI,other,5,5,control,64
+24,-0.189690662,0.087347636,elementary,mixed,Multidiscipline,0,Baseline,TEBI,other,-5,5,control,65
+24,0.213610561,0.087452494,elementary,mixed,Multidiscipline,0,Baseline,TEBI,other,-5,5,control,66
+25,0.17819297,0.052167205,secondary,tradition,Math,24,Post-test 1,Other,other,0,24,control,67
+25,0.217791408,0.052271101,secondary,tradition,Math,24,Post-test 1,Other,other,0,24,control,68
+26,2.691609966,0.152447642,elementary,tradition,Multidiscipline,50,Post-test 1,TEBI,usa,0,72,control,69
+26,2.315980798,0.133637671,elementary,tradition,Multidiscipline,50,Post-test 1,TEBI,usa,0,72,control,70
+27,0.39324224,0.039345096,elementary,tradition,Science,18,Post-test 1,Other,other,12,12,control,71
+27,-0.417240202,0.039436841,elementary,tradition,Science,0,Baseline,Other,other,-12,12,control,72
+28,0.93478174,0.400145776,elementary,mixed,Math,36,Post-test 1,TSES,other,18,18,control,73
+28,1.171741547,0.407163363,elementary,mixed,Math,36,Post-test 1,TSES,other,18,18,control,74
+28,0.062891241,0.387916604,elementary,mixed,Math,0,Baseline,TSES,other,-18,18,control,75
+28,0.346708125,0.389550951,elementary,mixed,Math,0,Baseline,TSES,other,-18,18,control,76
