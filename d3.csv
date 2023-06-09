@@ -1,4 +1,4 @@
-Subject,ItemNo,Reaction.Time,Condition,item_num
+Subject,Item,RT,Condition,item_num
 adk208,1,549.1749998182058,unrelated,Odd
 adk208,1,601.3650000095367,related,Odd
 adk208,2,825.3299999050796,related,Even
