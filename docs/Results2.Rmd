@@ -1,0 +1,251 @@
+---
+title: Interactive effects of task repetition, task motivation and task engagement
+  on CAL in L2 writing
+author: "XXXX"
+date: "1/26/2023"
+output:
+  word_document:
+    toc: yes
+  html_document:
+    fig_height: 8
+    fig_width: 5
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+toc-title: Table of Contents
+subtitle: "*Webpage created and maintained by XXXX* &copy; 2022-present"
+---
+```{r, echo=FALSE,include=FALSE}
+
+library(knitr)
+library(kableExtra)
+library(flextable)
+source("mlm.r")
+
+opts_chunk$set(message = FALSE, warning=FALSE, fig.align="center")
+
+#dat <- read.csv("https://raw.githubusercontent.com/hkil/m/master/o.csv")
+#dat <- transform(dat, time = factor(time))
+```
+
+# Study Design
+
+We adopted a ***Latin Square*** design for our study. Following this design, we randomly assigned our participants to either receiving the tasks in a *"simple-to-complex"* (`s2c`) or *"complex-to-simple"* (`c2s`) order. As a result, participants in the `s2c` group completed our simple task at odd time points ($1$ and $3$) and complex task at even time points ($2$ and $4$). Conversely, participants in the `c2s` group completed our complex task at odd time points ($1$ and $3$) and simple task at even time points ($2$ and $4$). Figure 1 visually depicts our full design for two participants (#1 and #51) in these two groups.
+
+
+```{r, echo=FALSE, fig.width=7.7, fig.height=6,fig.cap="Fig. 1. Design of the study"}
+
+dat2 <- mutate(dat, questionnaire = "Motiv./Eng.")
+
+meta_tree(dat2, id, order, time, task_dif,questionnaire,cal,effect = FALSE,
+          highest_level_name = c(1,51),
+          toplab = c("Participant","Order",
+                     "Time","Task Type",
+                     "Questionnaire","CAL"),
+          cex_top = .8, reset = FALSE)
+```
+
+In addition, the following table shows the distribution of the measurements on the CAL measures (dependent variables) we collected from our participants ($N =100$) across our time points given the order to which they were each assigned:
+
+```{r, echo=FALSE}
+
+g <- setNames(as.data.frame(with(dat, table(order, time))),
+              c("Order","Time","Measurements"))
+g <- cbind(`n (group)`=50, `n (CAL Measures)`=7, g)[c(1,3,2,4:5)]
+
+g <- rbind(g, tibble(`n (group)`="Overall",Order="Overall", `n (CAL Measures)`="Overall", Time = "Overall", Measurements=2800))
+
+#kbl(g, caption = "Distribution of CAL measurements") %>%
+#  kable_classic(full_width = F)
+
+flextable(g) %>%
+  autofit() %>% set_caption("Distribution of CAL measurements")%>% fontsize(size = 11, part = "all") %>%
+  line_spacing(space = .6, part = "all")
+```
+
+As shown in the Table above, our design with respect to time and order of the writing task was balanced with no attrition or loss of data due to students' dropping out or delivering incomprehensible writing tasks.
+
+# Statistical modeling
+A starting point for any statistical modeling is an understanding of the theoretical and empirical nature of the dependent variable(s) under study. In our study, the CAL measures (the dependent variables) tended to be both theoretically (**Mahmoud, add reference here**) and empirically (as evidenced by their lack of correlation in the study data) distinct (i.e., non-overlapping) from one another.
+
+In addition, these CAL measures were on various scales of measurements. For instance, our measure of accuracy (`EFC/C`) was on a proportion-type scale (ranging from $0$ to $1$). On the other hand, other measures of lexical complexity (e.g., `Vocd`) were on unbounded numerical scales.
+
+As a result, we allowed each CAL measure to be separately modeled based on its unique characteristics for the participants.
+
+In modeling the impact of our independent variables (e.g., task repetition) on the CAL measures, it seemed logical to empirically verify a few purely theoretical assumptions:
+
+1) Our model-predicted CAL scores are likely more similar for each participant than those for other participants (participants have a clustering effect on our inferential conclusions, which if ignored, makes them prone to being Type I errors). 
+
+2) The impact of task repetition on CAL scores may vary across participants (there is (co-)variation in task repetition's impact among participants).
+
+3) The moderating impact of our moderators (*task difficulty, task motivation, engagement variables*) on task repetition may vary across participants (there is (co-)variation in our moderators impact among participants).
+
+
+4) The moderating impact of our moderators (*task difficulty, task motivation, engagement variables*) at each time of measurement (times 1, 2, 3, and 4) on task repetition may vary across participants (there is (co-)variation in our moderators impact across times of measurement among participants).
+
+We, then, proceeded to empirically verify if these theoretical assumptions apply to our study. While assumption 1 was empirically verified, assumptions 2, 3 and 4 did not apply to our study. An implication of assumption #1 was that our participants were treated as a sample of a wider population L2 learners perhaps with the same range of differences in characteristics as those present in our participants.
+
+The above assumptions aimed to capture the heterogeneity and dependence arising in predictions of our statistical models (*hierarchical assumptions*). Another form of heterogeneity and dependence may arise in what is NOT predicted (i.e., residuals) by our statistical models (*residual assumptions*).
+
+In short, our initial statistical models assumed that their residuals are *independent and similarly spread* across the model-predicted scores (i.e., residual vs. fitted scores) but also across all other predictors of CAL measures used in the model. This assumption is typically violated when: (A) scores on the dependent variable are on a measurement scale that doesn't directly map onto the distribution the statistical model uses for modeling (e.g., mapping a proportion-type dependent variable onto a normal distribution used in a linear model), and (B) the distribution for dependent variable scores could map onto the distribution the statistical model uses for modeling only conditional on variables other than the dependent variable itself (e.g., predictors, control variables like individual differences etc.). In our case, the *residual assumption* was violated for multiple CAL measures mainly due to the second reason.
+
+Specifically, upon examining these violations, we realized that *task repetition, time on task, and task motivation* were the main variables in our study responsible for these violations. For instance, we realized that higher levels of task motivation were associated with smaller residual spread for the `DC/T` measure of syntactic complexity.
+
+As another example, in addition to a positive non-linear association between the amount of time spent on a writing task and the spread of the residuals, the residuals across different times of CAL measurement were both freely correlated and unevenly spread for the `CN/T` measure of syntactic complexity.
+
+Once the sources of violations were identified, we then directed the statistical model to adapt its default assumptions to the reality of the data connecting the violations of residual assumptions to their underlying reasons. In a way, this process re-calibrated the statistical model to make more realistic predictions and not necessarily consider all initially bad-fitting participants as outliers. 
+
+As a graphical validation of our residual modeling process, here is the pattern of residuals on the `CN/T` measure ***before*** residual modeling:
+
+
+```{r, echo=FALSE, fig.height=4}
+ac <- readRDS("uni_RQ1.rds")
+
+plot(ac[[3]]$Models$`com_CN/T_u0`, type=c("p","smooth"), col.line=2)
+```
+
+And ***after*** residual modeling:
+
+```{r, echo=FALSE, fig.height=4}
+
+plot(ac[[3]]$Models$`com_CN/T_u1`, type=c("p","smooth"), col.line=2)
+```
+
+The **after** pattern indicates that now residuals' have nearly zero association (linear and non-linear) to the model-predicated data (i.e., they are independent), and they are spread more evenly across the model-predicated data.
+
+
+# RQ1: To what extent can task repetition impact measures of L2 writing syntactic complexity, accuracy, and lexical complexity?
+
+```{r, echo=FALSE, fig.cap="Figure 1. The impact of task repetition on CAL measures", fig.height=5,fig.width=6}
+
+a <- readRDS("rq1.rds")
+
+tab1 <- dplyr::select(a$tab, -Df)
+
+tab1 <- cbind(`row no.` = 1:nrow(tab1), tab1)
+
+#kbl(tab1, caption = "The impact of task repetition on CAL measures") %>%
+#  kable_classic(full_width = F)
+
+flextable(tab1) %>%
+  autofit() %>% set_caption("The impact of task repetition on CAL measures")%>% fontsize(size = 11, part = "all") %>%
+  line_spacing(space = .6, part = "all")
+
+a$plots
+```
+
+
+# RQ2: To what extent is that impact moderated by the level of task difficulty?
+```{r, echo=FALSE, fig.cap="Figure 2. The impact of task repetition on CAL measures moderated by task difficulty", fig.height=5.5,fig.width=7}
+b <- readRDS("rq2.rds")
+
+tab2 <- dplyr::select(b$tab, -Df)
+
+tab2 <- cbind(`row no.` = 1:nrow(tab2), tab2)
+
+#kbl(tab2, caption = "The impact of task repetition on CAL measures moderated by task #difficulty") %>%
+#  kable_classic(full_width = F)
+
+flextable(tab2) %>%
+  autofit() %>% set_caption("The impact of task repetition on CAL measures moderated by task difficulty")%>% fontsize(size = 11, part = "all") %>%
+  line_spacing(space = .6, part = "all")
+
+#con <- dplyr::select(b$con, -Df)
+
+#con <- cbind(`row no.` = 1:nrow(con), con)
+
+#kbl(con, caption = "The effect of task complexity at first and repeated tasks") %>%
+#  kable_classic(full_width = F)
+
+
+b$plots
+```
+
+# RQ3: To what extent is that impact moderated by the level of task motivation for simple and complex tasks?
+
+```{r, echo=FALSE, fig.cap="Figure 3. The impact of task repetition on CAL measures moderated by task motivation for simple and complex tasks", fig.height=14}
+
+cc <- readRDS("rq3.rds")
+
+
+tab3 <- dplyr::select(cc$tab, -Df)
+
+tab3 <- cbind(`row no.` = 1:nrow(tab3), tab3)
+
+#kbl(tab3, caption = "The impact of task repetition on CAL measures moderated by task #motivation for simple and complex tasks") %>%
+#  kable_classic(full_width = F)
+
+
+flextable(tab3) %>%
+  autofit() %>% set_caption("The impact of task repetition on CAL measures moderated by task motivation for simple and complex tasks")%>% fontsize(size = 11, part = "all") %>%
+  line_spacing(space = .6, part = "all")
+
+
+#con <- dplyr::select(cc$con, -Df)
+
+#con <- cbind(`row no.` = 1:nrow(con), con)
+
+#kbl(con, caption = "The effect of task motivation at each task performance") %>%
+#  kable_classic(full_width = F)
+
+cc$plots 
+```
+
+# RQ4: To what extent is that impact moderated by the level of time on task for simple and complex tasks?
+
+```{r, echo=FALSE,fig.cap="Figure 3. The impact of task repetition on CAL measures moderated by time on task for simple and complex tasks", fig.height=14}
+
+cc <- readRDS("rq4.rds")
+
+tab3 <- dplyr::select(cc$tab, -Df)
+
+tab3 <- cbind(`row no.` = 1:nrow(tab3), tab3)
+
+#kbl(tab3, caption = "The impact of task repetition on CAL measures moderated by time on task for simple and complex tasks") %>%
+#  kable_classic(full_width = F)
+
+flextable(tab3) %>%
+  autofit() %>% set_caption("The impact of task repetition on CAL measures moderated by time on task for simple and complex tasks")%>% fontsize(size = 11, part = "all") %>%
+  line_spacing(space = .6, part = "all")
+
+
+#con <- dplyr::select(cc$con, -Df)
+
+#con <- cbind(`row no.` = 1:nrow(con), con)
+
+#kbl(con, caption = "The effect of time on task at each task performance") %>%
+#  kable_classic(full_width = F)
+
+cc$plots
+```
+
+# RQ5: To what extent is that impact moderated by the writing length for simple and complex tasks?
+```{r, echo=FALSE,fig.cap="Figure 4. The impact of task repetition on CAL measures moderated by writing length for simple and complex tasks", fig.height=14}
+
+cc <- readRDS("rq5.rds")
+
+tab3 <- dplyr::select(cc$tab, -Df)
+
+tab3 <- cbind(`row no.` = 1:nrow(tab3), tab3)
+
+#kbl(tab3, caption = "The impact of task repetition on CAL measures moderated by writing length for simple and complex tasks") %>%
+#  kable_classic(full_width = F)
+
+flextable(tab3) %>%
+  autofit() %>% set_caption("The impact of task repetition on CAL measures moderated by writing length for simple and complex tasks")%>% fontsize(size = 11, part = "all") %>%
+  line_spacing(space = .6, part = "all")
+
+
+#con <- dplyr::select(cc$con, -Df)
+
+#con <- cbind(`row no.` = 1:nrow(con), con)
+
+#kbl(con, caption = "The effect of writing length at each task performance") %>%
+#  kable_classic(full_width = F)
+
+cc$plots
+```
+
+
+
