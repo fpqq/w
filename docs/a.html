@@ -1507,9 +1507,9 @@ size</h1>
 compares their distributions and heterogeneity, and performs
 meta-analyses on the <code>dat_ROM</code> dataset which measures the use
 target-like use (see <a href="https://www.cambridge.org/core/journals/annual-review-of-applied-linguistics/article/abs/capturing-accuracy-in-second-language-performance-the-case-for-a-weighted-clause-ratio/CA84E651C32E9DF976EE20AB23BFB574">Foster
-&amp; Wigglesworth, 2016</a>) as a proportion of accuracy in learners
-writing tasks across two groups (a treatment and a control) at a
-follow-up test (post-test).</p>
+&amp; Wigglesworth, 2016</a>) as a percentage-based measure of accuracy
+in learners writing tasks across two groups (treatment and control) at a
+post-test.</p>
 <p>Based on the results, ROM is preferred due to its less skewed
 distribution and smaller heterogeneity (<span class="math inline">\(I^2\)</span>). Finally, the treatment group shows
 a <span class="math inline">\(43.9\%\)</span> improvement over the
@@ -1522,8 +1522,9 @@ for conducting meta-analyses in R. It provides functions for calculating
 effect sizes (<code>escalc</code>) and performing statistical
 analyses:</p>
 <pre class="r"><code>source(&quot;https://t.ly/TVmIg&quot;)</code></pre>
-<p>The next code calculates two types of effect sizes for each dataset:
-natural-log-transformed Ratio of Means (ROM) and Hedges’ g
+<p>The next code calculates two types of effect sizes for each row in
+<code>dat_ROM</code> dataset that comes with the software. The output
+will include natural-log-transformed Ratio of Means (ROM) and Hedges’ g
 (<code>&quot;SMD&quot;</code>). Both effect sizes use means of treatment and
 control groups (<code>mT</code>, <code>mC</code>), standard deviations
 (<code>sdT</code>, <code>sdC</code>), and sample sizes (<code>n</code>)
@@ -1535,8 +1536,7 @@ here being equal for the treatment and control groups:</p>
   sd1i = sdT, 
   sd2i = sdC,
   n1i = n, 
-  n2i = n
-)
+  n2i = n)
 
 dat &lt;- escalc(
   data = dat, measure = &quot;SMD&quot;, var.names = c(&quot;g&quot;, &quot;v_g&quot;),
@@ -1545,8 +1545,7 @@ dat &lt;- escalc(
   sd1i = sdT, 
   sd2i = sdC,
   n1i = n, 
-  n2i = n
-)</code></pre>
+  n2i = n)</code></pre>
 <p>The <code>var.names</code> parameter assigns new column names for the
 calculated effect sizes (<code>ROM</code>, <code>g</code>) and their
 sampling variances (<code>v_ROM</code>, <code>v_g</code>).</p>
@@ -1600,8 +1599,8 @@ the treatment and control groups using a transformation function.</p>
 (<code>pct_dif_tran</code>) to the ROM effect size (see manuscript).
 This converts the pooled ROM into a percentage difference, making it
 easier to interpret. Based on the output, the treatment groups performed
-<span class="math inline">\(43.9\%\)</span> better than the control
-groups.</p>
+about <span class="math inline">\(43.9\%\)</span> better than the
+control groups.</p>
 </div>
 </div>
 <div id="calculating-did-effect-sizes" class="section level1" number="2">
@@ -1642,8 +1641,9 @@ change effect size (SMCRP) for the treatment group.<br />
 <code>sd2i</code>: Standard deviation at post-test.<br />
 <code>ri</code>: Correlation between pre-test and post-test
 scores.<br />
-<code>data=subset(dat_quasi, Group==&quot;T&quot;)</code>: Filters dat_quasi to
-include only rows where the Group is “T” (treatment group).<br />
+<code>data=subset(dat_quasi, Group==&quot;T&quot;)</code>: Filters
+<code>dat_quasi</code> to include only rows where the Group is “T”
+(treatment group).<br />
 </p>
 <p>The result (<code>datT</code>) includes two key outputs:
 <code>yi</code>: The calculated effect size for each study.
@@ -1667,12 +1667,12 @@ group).</p>
 <div id="compute-did-effect-sizes" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Compute DiD Effect
 Sizes</h2>
-<pre class="r"><code>dat &lt;- data.frame(DID = datT$yi - datC$yi, 
+<pre class="r"><code>dat &lt;- data.frame(DiD = datT$yi - datC$yi, 
                   vi = datT$vi + datC$vi, 
                   time_interval = datT$time)</code></pre>
 <p><strong>Purpose:</strong> Creates a new data frame that combines the
 treatment and control effect sizes to calculate the DiD effect sizes.
-<code>DID = datT$yi - datC$yi</code>: Computes the difference in
+<code>DiD = datT$yi - datC$yi</code>: Computes the difference in
 within-group effect sizes between the treatment and control groups.
 <code>vi = datT$vi + datC$vi</code>: Adds the variances of the treatment
 and control groups to compute the variance of the between-group effect
@@ -1707,8 +1707,8 @@ Parameters</h2>
 <code>g</code>: Hedges’ g effect size estimate from the study.<br />
 <code>n_cluster</code>: Total number of clusters (e.g.,
 classrooms).<br />
-<code>Nt</code>: Number of subjects in the treatment group.<br />
-<code>Nc</code>: Number of subjects in the control group.<br />
+<code>Nt</code>: Number of subjects in the treatment classes.<br />
+<code>Nc</code>: Number of subjects in the control classes.<br />
 <code>icc</code>: Intraclass correlation coefficient, defaulting to
 0.15. This parameter reflects the similarity of outcomes within clusters
 (e.g., students in the same classroom).</p>
