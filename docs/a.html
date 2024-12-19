@@ -1524,11 +1524,12 @@ analyses:</p>
 <pre class="r"><code>source(&quot;https://t.ly/TVmIg&quot;)</code></pre>
 <p>The next code calculates two types of effect sizes for each row in
 <code>dat_ROM</code> dataset that comes with the software. The output
-will include natural-log-transformed Ratio of Means (ROM) and Hedges’ g
-(<code>&quot;SMD&quot;</code>). Both effect sizes use means of treatment and
-control groups (<code>mT</code>, <code>mC</code>), standard deviations
-(<code>sdT</code>, <code>sdC</code>), and sample sizes (<code>n</code>)
-here being equal for the treatment and control groups:</p>
+will include natural-log-transformed Ratio of Means (<code>&quot;ROM&quot;</code>)
+and Hedges’ g (<code>&quot;SMD&quot;</code>). Both effect sizes use means of
+treatment and control groups (<code>mT</code>, <code>mC</code>),
+standard deviations (<code>sdT</code>, <code>sdC</code>), and sample
+sizes (<code>n</code>) here being equal for the treatment and control
+groups:</p>
 <pre class="r"><code>dat &lt;- escalc(
   data = dat_ROM, measure = &quot;ROM&quot;, var.names = c(&quot;ROM&quot;, &quot;v_ROM&quot;),
   m1i = mT, 
@@ -1731,17 +1732,19 @@ control (<code>Nc</code>) classes.</p>
       v_g2 = ifelse(assign_type==&quot;class&quot;, g_vi_cluster(g, n_class, Nt, Nc), v_g)
   ) %&gt;% ungroup()</code></pre>
 <p><code>group_by(dat_note, study)</code>: Groups the data by study for
-easier application of adjustments within each study.
-<code>mutate()</code>: Creates two new variables: <code>g2</code>:
-Adjusted Hedges’ g for studies with intact classes
+easier application of adjustments within each study.<br />
+<code>mutate()</code>: Creates two new variables:<br />
+<code>g2</code>: Adjusted Hedges’ g for studies with intact classes
 (<code>assign_type == &quot;class&quot;</code>). For studies with individual
-randomization, the original <code>g</code> is retained.
+randomization, the original <code>g</code> is retained.<br />
 <code>v_g2</code>: Adjusted variance for <code>g</code> if clustering
-was ignored. ifelse Conditions: For <code>assign_type == &quot;class&quot;</code>,
-apply <code>g_cluster()</code> and <code>g_vi_cluster()</code> for
-adjustments. Otherwise, retain the original values (<code>g</code> and
-<code>v_g</code>). <code>ungroup()</code>: Removes grouping to return
-the final adjusted dataset.</p>
+was ignored.<br />
+ifelse Conditions:<br />
+For <code>assign_type == &quot;class&quot;</code>, apply <code>g_cluster()</code>
+and <code>g_vi_cluster()</code> for adjustments. Otherwise, retain the
+original values (<code>g</code> and <code>v_g</code>).<br />
+<code>ungroup()</code>: Removes grouping to return the final adjusted
+dataset.</p>
 <p>The adjustments are most noticeable in the sampling variances
 (<code>v_g2</code>), which become larger compared to the original values
 (<code>v_g</code>). This reflects the reduced precision due to the
