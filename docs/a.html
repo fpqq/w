@@ -1511,10 +1511,11 @@ target-like use (see <a href="https://www.cambridge.org/core/journals/annual-rev
 (e.g., of using past tense) in learners’ writing tasks between two
 groups (treatment and control) at a post-test across experimental
 studies.</p>
-<p>Based on the results, ROM is preferred due to its less skewed
-distribution and smaller heterogeneity (<span class="math inline">\(I^2\)</span>). Finally, the treatment group shows
-a <span class="math inline">\(43.9\%\)</span> improvement over the
-control group when interpreted via <span class="math inline">\(ROM\%\)</span> (see manuscript).</p>
+<p>As we shall see further below, ROM is preferred over Hedges’ g due to
+its less skewed distribution and smaller heterogeneity (<span class="math inline">\(I^2\)</span>). A subsequent meta-analysis with ROM
+will then reveal that the treatment group shows a <span class="math inline">\(43.9\%\)</span> improvement over the control group
+when interpreted via <span class="math inline">\(ROM\%\)</span> (see
+manuscript). The following code describes all these steps.</p>
 <div id="software-data-and-effect-size-calculation" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Software, Data, and
 Effect Size Calculation</h2>
@@ -1620,8 +1621,8 @@ programs</h2>
 <p>Loads the metafor package, a tool for conducting meta-analyses in R.
 It provides functions for calculating effect sizes (<code>escalc</code>)
 and performing statistical analyses. It also loads
-<code>dat_quasi</code>, a dataset used for demonstrating DiD effect
-size.</p>
+<code>dat_quasi</code> (see manuscript), a dataset used for
+demonstrating DiD effect size.</p>
 </div>
 <div id="calculate-effect-sizes-for-the-treatment-group" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Calculate Effect
