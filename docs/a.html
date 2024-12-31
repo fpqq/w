@@ -1505,8 +1505,8 @@ improved rigor’</em></h1>
 size</h1>
 <p>The following R code calculates two effect sizes (Hedges’ g and ROM),
 compares their distributions and heterogeneity, and performs
-meta-analyses on the <code>dat_ROM</code> dataset which measures the
-target-like use (see <a href="https://www.cambridge.org/core/journals/annual-review-of-applied-linguistics/article/abs/capturing-accuracy-in-second-language-performance-the-case-for-a-weighted-clause-ratio/CA84E651C32E9DF976EE20AB23BFB574">Foster
+meta-analyses on the <code>dat_ROM</code> dataset which includes
+measurements of target-like use (see <a href="https://www.cambridge.org/core/journals/annual-review-of-applied-linguistics/article/abs/capturing-accuracy-in-second-language-performance-the-case-for-a-weighted-clause-ratio/CA84E651C32E9DF976EE20AB23BFB574">Foster
 &amp; Wigglesworth, 2016</a>) as a percentage-based measure of accuracy
 (e.g., of using past tense) in learners’ writing tasks between two
 groups (treatment and control) at a post-test across experimental
@@ -1593,7 +1593,8 @@ likely artifactual rather than substantive.</p>
 <h2><span class="header-section-number">1.4</span> Interpret ROM as
 Percentage Difference</h2>
 <p>The pooled ROM is interpreted as the percentage difference between
-the treatment and control groups using a transformation function.</p>
+the treatment and control groups using a transformation function
+(<code>pct_dif_tran</code>).</p>
 <pre class="r"><code>post_rma(ROM_meta, tran = pct_dif_tran, type = &quot;response&quot;)</code></pre>
 <pre><code>##         1 Response    SE   Df  Lower  Upper      z p-value Sig.
 ## 1 overall   43.880 2.325  Inf 39.395 48.511 22.512   0.000  ***</code></pre>
